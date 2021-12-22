@@ -61,6 +61,9 @@
   background-color: $black !important;
   transition: background-color 200ms linear;
 }
+.navbar.scrolled .navbar-toggler-icon {
+  filter: invert(1);
+}
 .navbar.scrolled {
   .contact_btn {
     &:hover {
