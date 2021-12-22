@@ -1,0 +1,44 @@
+//importing mixin
+@import "./_mixin.scss";
+
+//website colors
+$primary_color: #ffb142;
+$secondery_color: #ffda79;
+$text_color: #333333;
+$black: #2f3640;
+$transition: 0.3s;
+
+//grid classes
+$culomns: 12;
+@for $i from 1 through $culomns {
+  .my_col-#{$i} {
+    width: percentage($i / $culomns);
+  }
+}
+
+//Different color classes
+$classes: "one" #95afc0, "two" #30336b, "three" #535c68, "four" #eb4d4b,
+  "five" #16a085, "six" #f39c12, "seven" #2980b9, "eight" #82589f;
+//making classes
+@each $class, $color in $classes {
+  .class_#{$class} {
+    background-color: $color;
+    color: #fff;
+    padding: 100px;
+    font-size: 70px;
+    @include centered;
+  }
+}
+
+//media query
+$max_mobile: "max-width: 991px";
+@media ($max_mobile) {
+  @for $i from 1 through $culomns {
+    .my_col-#{$i} {
+      width: 100%;
+    }
+  }
+  @mixin grid {
+    grid-template-columns: 1fr;
+  }
+}

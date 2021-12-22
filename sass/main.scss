@@ -1,0 +1,230 @@
+//import global Rules
+@import "./globalRules";
+
+// import Variables
+@import "./variables";
+
+// import navbar style
+@import "./navbar";
+
+// import hero style
+@import "./hero";
+
+//main button
+.hero_button {
+  @include mainButton;
+}
+
+//hero section style
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .hero_text {
+    padding: 40px 10px;
+    h3 {
+      font-size: 3em;
+      color: $black;
+      span {
+        color: $primary_color;
+      }
+    }
+    p {
+      color: $black;
+    }
+  }
+  .hero_img {
+    background-image: url("https://images.unsplash.com/photo-1639733755368-7d0b2507e429?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=464&q=80");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+}
+
+//main heading
+.heading {
+  h1 {
+    @include header;
+  }
+}
+
+//fetures section style
+.fetures {
+  background: #f7f9fa;
+}
+.griding {
+  @include grid;
+}
+
+//banner section style
+.banner {
+  background-color: $primary_color;
+  .row div {
+    @include centered;
+    flex-direction: column;
+  }
+
+  i {
+    color: #fff;
+    font-size: 35px;
+    margin-bottom: 15px;
+  }
+  h3 {
+    color: #fff;
+    font-size: 45px;
+    font-weight: bold;
+  }
+  h5 {
+    color: #fff;
+    font-size: 20px;
+  }
+}
+
+//pricing section style
+.pricing {
+  .row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 60px;
+    .price_content {
+      @include boxShadow;
+
+      i {
+        color: $primary_color;
+        font-size: 30px;
+        margin-bottom: 20px;
+      }
+      h5 {
+        font-weight: bold;
+      }
+      h3 {
+        margin-bottom: 20px;
+      }
+      p {
+        line-height: 1.8;
+        padding: 0 20px;
+      }
+      button {
+        background-color: $primary_color;
+        border: none;
+        color: #fff;
+        animation-duration: 0s;
+        border-radius: 4px;
+        &:hover {
+          background-color: $black;
+          color: $primary_color;
+        }
+      }
+    }
+  }
+}
+
+//team section style
+.team {
+  background-color: #f7f9fa;
+  .card {
+    border: none;
+    margin: 0 10px;
+    h1 {
+      font-size: 24px;
+      font-weight: bold;
+    }
+    p {
+      color: $primary_color;
+      font-weight: bold;
+    }
+  }
+  .lSSlideOuter .lSPager.lSpg {
+    margin-top: 16px !important;
+  }
+  .lSSlideOuter .lSPager.lSpg > li.active a,
+  .lSSlideOuter .lSPager.lSpg > li:hover a {
+    background-color: $primary_color;
+  }
+}
+.card_img img {
+  width: 150px !important;
+  height: 150px !important;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+//contact section style
+.contact {
+  .row {
+    height: 100%;
+    form {
+      padding: 40px 30px 20px 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      height: 100%;
+    }
+  }
+}
+
+.contact_text {
+  @include centered;
+  padding: 20px;
+  position: relative;
+
+  background: url("https://images.unsplash.com/uploads/1413222992504f1b734a6/1928e537?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fGNvbnRhY3R8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60");
+  background-position: center;
+  background-size: cover;
+  &::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1;
+  }
+  .text {
+    position: relative;
+    z-index: 2;
+
+    h1 {
+      color: #fff;
+      font-size: 3em;
+      margin-bottom: 20px;
+    }
+    p {
+      color: #f7f9fa;
+    }
+  }
+}
+
+//footer
+footer {
+  p {
+    span {
+      color: $primary_color;
+      font-weight: bold;
+    }
+  }
+}
+//responsive
+$max_mobile: "max-width: 991px";
+@media ($max_mobile) {
+  .griding,
+  .pricing .row {
+    grid-template-columns: 1fr;
+  }
+}
+
+//animation
+@include KeyF(fade-up) {
+  transform: translatey(100px);
+  -webkit-transform: translatey(100px);
+  -moz-transform: translatey(100px);
+  -ms-transform: translatey(100px);
+  -o-transform: translatey(100px);
+}
+@include KeyF(fade-left) {
+  transform: translatex(100px);
+  -webkit-transform: translatex(100px);
+  -moz-transform: translatex(100px);
+  -ms-transform: translatex(100px);
+  -o-transform: translatex(100px);
+}

@@ -1,0 +1,98 @@
+///animation
+@mixin KeyF($anim-name) {
+  @-webkit-keyframes #{$anim-name} {
+    0% {
+      @content;
+    }
+  }
+  @keyframes #{$anim-name} {
+    0% {
+      @content;
+    }
+  }
+}
+
+//centered
+@mixin centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+//header
+@mixin header {
+  position: relative;
+  width: max-content;
+  padding: 10px 0;
+  text-transform: uppercase;
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50%;
+    height: 6px;
+    background-color: $primary_color;
+  }
+}
+
+// main button
+@mixin mainButton {
+  padding: 10px 30px;
+  margin: 20px 0;
+  color: $black;
+  border: 3px solid $black;
+  text-transform: uppercase;
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
+  transition: $transition;
+  -webkit-transition: $transition;
+  -moz-transition: $transition;
+  -ms-transition: $transition;
+  -o-transition: $transition;
+  &:hover {
+    background-color: $black;
+    color: $primary_color;
+  }
+  animation: fade-up 2s;
+  -webkit-animation: fade-up 2s;
+}
+//shadow
+@mixin boxShadow {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+  background: #ffffff;
+}
+//grid
+@mixin grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  div {
+    @include centered;
+    @include boxShadow;
+    flex-direction: column;
+    padding: 56px 20px 50px;
+    transition: $transition;
+    cursor: pointer;
+    & i {
+      font-size: 35px;
+      color: $primary_color;
+      margin-bottom: 15px;
+    }
+    & span {
+      color: $black;
+      font-weight: 400;
+      font-size: 17px;
+      letter-spacing: 1px;
+    }
+    &:hover {
+      background: $primary_color;
+      & i {
+        color: #fff;
+      }
+    }
+  }
+}
