@@ -556,6 +556,8 @@
     <script src="../dist/js/bootstrap.min.js"></script>
     <!--slider js link-->
     <script src="../dist/js/lightslider.min.js"></script>
+    
+    <!--change navbar backgrounf after scroll-->
     <script>
       $(function () {
         $(document).scroll(function () {
@@ -564,6 +566,8 @@
         });
       });
     </script>
+
+    <!--slider script-->
     <script type="text/javascript">
       $(document).ready(function () {
         $("#review_slider_content").lightSlider({
@@ -591,6 +595,13 @@
             },
           ],
         });
+      });
+    </script>
+
+    <!--closing navbar after click-->
+    <script>
+      $(".navbar-nav>li>a").on("click", function () {
+        $(".navbar-collapse").collapse("hide");
       });
     </script>
   </body>
